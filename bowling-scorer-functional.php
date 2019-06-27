@@ -41,7 +41,7 @@ $gameScorer = function ($currentGame, $roll) {
 
 $rollBall = function ($currentGame, $gameScorer) use ($strikeScorer, $spareScorer) {
     $roll = rand(0,10);
-    $roll = 8;
+    //$roll = 8;
     $currentGame = $gameScorer($currentGame, $roll);
 
     if($roll == 10) { //strike
@@ -68,8 +68,6 @@ $rollBall = function ($currentGame, $gameScorer) use ($strikeScorer, $spareScore
 
 $bowlingGame = createNewGame();
 $x = 21; //max balls
-
-$visualRepresentationOfGame = [];
 do {
     $rollInProgress = $rollBall($bowlingGame, $gameScorer);
 
@@ -81,8 +79,6 @@ do {
         else {//on the 10th frame a
             $x -= 1;
         }
-
-        print_r($bowlingGame);
     }
 
     if(is_callable($rollInProgress)) {//roll again
@@ -92,7 +88,6 @@ do {
         if(count($bowlingGame) == 10 && !checkForCallable($bowlingGame)) {
             $x = 0;
         }
-        print_r($bowlingGame);
     }
     sleep(1);
 }
