@@ -85,11 +85,10 @@ do {
         $bowlingGame = $rollInProgress($bowlingGame, $gameScorer);
         $x -= 2;
 
-        if(count($bowlingGame) == 10 && !checkForCallable($bowlingGame)) {
+        if(count($bowlingGame) == 10 && !checkForCallable($bowlingGame)) {//they opened the last frame
             $x = 0;
         }
     }
-    sleep(1);
 }
 while ($x > 0);
 
